@@ -4,8 +4,8 @@ This project is a web-based application built with Django, simulating a basic e-
 
 ## ⚙️ Technologies
 
-- Python 3.x  
-- Django 4.x  
+- Python 3.13 
+- Django 5.x  
 - SQLite (by default)  
 - Bootstrap (for basic front-end styling)
 
