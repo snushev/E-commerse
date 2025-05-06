@@ -95,10 +95,26 @@ $(document).ready(function () {
         const itemTotal = quantity * price;
         total += itemTotal;
 
-        const itemString = `<li class="list-group-item"><span class="badge bg-success rounded-pill">${quantity}</span> X ${name}  <span class="badge bg-warning rounded-pill">$${price.toFixed(2)}</span> = <span class="badge bg-danger rounded-pill">$${itemTotal.toFixed(2)}</span></li>`;
+ const itemString = `
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <span class="badge bg-success rounded-pill">${quantity}</span> X ${name}
+                <span class="badge bg-warning rounded-pill">$${price.toFixed(2)}</span> = 
+                <span class="badge bg-danger rounded-pill">$${itemTotal.toFixed(2)}</span>
+            </div>
+            <button class="btn btn-sm btn-outline-danger remove-item" data-id="${item}">
+                <i class="bi bi-trash"></i> Remove
+            </button>
+        </li>`;        
         $('#item_list').append(itemString);
     }
-
+    $(document).on('click', '.remove-item', function() {
+        const itemId = $(this).data('id');
+        delete cart[itemId];
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        location.reload();
+    });
     if (total > 0) {
         $('#item_list').append(`<li class="list-group-item bg-dark text-white">Total: $${total.toFixed(2)}</li>`);
     }
