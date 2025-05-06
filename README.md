@@ -4,9 +4,9 @@ This project is a web-based application built with Django, simulating a basic e-
 
 ## ⚙️ Technologies
 
-- Python 3.13 
-- Django 5.x  
-- SQLite (by default)  
+- Python 3.13
+- Django 5.x
+- SQLite (by default)
 - Bootstrap (for basic front-end styling)
 
 ## 📦 Main Features & Modules
@@ -17,7 +17,7 @@ This project is a web-based application built with Django, simulating a basic e-
 - Update quantity
 - Total price calculation
 - Cart is session-based, no user login required
-- To be added: Remove products from the cart
+- Remove products from the cart
 
 ### 📄 Pagination
 
@@ -61,6 +61,6 @@ python manage.py runserver
 ```
 
 ## 🔐 Access
+
 - Admin access at /admin/ with a user created via createsuperuser
 - Shopping cart works anonymously via sessions
-
