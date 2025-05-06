@@ -1,0 +1,45 @@
+{% extends 'shop/base.html' %}
+
+{% block body %}
+
+<div class="row">
+    {% for product in product_objects %}
+    <div class="col-md-3">
+        <div class="card">
+            <img src="{{ product.image }}" class="card-img-top">
+            <div class="card-body">
+                <div id="nm{{ product.id }}" class="card-title">
+                    {{ product.title }}
+                </div>
+                <div id="price{{ product.id }}" class="card-text">
+                    ${{ product.price }}
+                </div>
+                <a href="/product/{{ product.id }}" class="btn btn-warning">View</a>
+                <button id="{{ product.id }}" class="btn atc btn-warning">Add to cart</button>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row">
+    <div class="col-md-3 offset-md-5">
+        <ul class="pagination">
+            {% if product_objects.has_previous %}
+            <li class="page-item"><a class="page-link"
+                    href="?page={{ product_objects.previous_page_number }}">Previous</a></li>
+            {% endif %}
+
+            <li class="page-item"><a class="page-link active" href="?page={{ product_objects.number }}">Current</a>
+            </li>
+
+            {% if product_objects.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ product_objects.next_page_number }}">Next</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

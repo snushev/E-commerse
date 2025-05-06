@@ -1,0 +1,64 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group" id="item_list">
+
+            </ul>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+        <div class="col-md-12">
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" id="items" name="items">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputName4">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="John">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="John@mail.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="city" name="city">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputState">State</label>
+                        <input type="text" class="form-control" id="state" name="state">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">Zip</label>
+                        <input type="text" class="form-control" id="zipcode" name="zipcode">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">Amount to be paid</label>
+                        <input readonly="" type="text" class="font-control" id="total" name="total">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary bg-dark text-white">Place Order</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% block extra_js %}
+{% endblock %}
+
+{% endblock %}
